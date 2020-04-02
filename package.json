@@ -1,0 +1,99 @@
+{
+  "name": "fank.app",
+  "version": "0.1.0",
+  "description": "Fake bank for games!",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -r esm -r ./node_modules/dotenv/config index.js",
+    "deploy": "node -r esm -r ./node_modules/dotenv/config index.js",
+    "lint": "eslint --fix --ignore-path .gitignore .",
+    "format": "prettier --write --ignore-path .gitignore \"**/*.+(js|json)\"",
+    "commit": "npm run format && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beetlabs/fank.app.git"
+  },
+  "contributors": [
+    {
+      "name": "Brennon Schow",
+      "email": "brennonschow@gmail.com",
+      "url": "https://brennongs.dev"
+    },
+    {
+      "name": "Andrew Garvin",
+      "email": "me@andrewgarv.in",
+      "url": "https://andrewgarv.in"
+    }
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beetlabs/fank.app/issues"
+  },
+  "homepage": "https://github.com/beetlabs/fank.app#readme",
+  "engines": {
+    "node": "12"
+  },
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "dotenv-cli": "^3.1.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "massive": "^6.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.1",
+    "nodemon": "^2.0.2",
+    "prettier": "^2.0.2"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2019,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "globals": {
+      "Promise": "readonly"
+    },
+    "extends": [
+      "eslint:recommended",
+      "eslint-config-prettier"
+    ]
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "htmlWhitespaceSensitivity": "css",
+    "insertPragma": false,
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": false,
+    "printWidth": 80,
+    "proseWrape": "preserve",
+    "quoteProps": "as-needed",
+    "requirePragma": false,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false,
+    "vueIndentScriptAndStyle": false
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run commit"
+    ]
+  }
+}
