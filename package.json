@@ -6,8 +6,8 @@
   "scripts": {
     "start": "nodemon -r esm -r ./node_modules/dotenv/config index.js",
     "deploy": "node -r esm -r ./node_modules/dotenv/config index.js",
-    "lint": "eslint --fix --ignore-path .gitignore .",
-    "format": "prettier --write --ignore-path .gitignore \"**/*.+(js|json)\"",
+    "lint": "eslint --fix  .",
+    "format": "prettier --write --ignore-path .eslintignore \"**/*.+(js|json)\"",
     "commit": "npm run format && npm run lint"
   },
   "repository": {
