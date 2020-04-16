@@ -6,9 +6,12 @@
   "scripts": {
     "start": "nodemon -r esm -r ./node_modules/dotenv/config index.js",
     "deploy": "node -r esm -r ./node_modules/dotenv/config index.js",
-    "lint": "eslint --fix --ignore-path .gitignore .",
-    "format": "prettier --write --ignore-path .gitignore \"**/*.+(js|json)\"",
-    "commit": "npm run format && npm run lint"
+    "lint": "eslint --fix  .",
+    "format": "prettier --write --ignore-path .eslintignore \"**/*.+(js|json)\"",
+    "commit": "npm run format && npm run lint",
+    "migrate:up": "db-migrate up",
+    "migrate:down": "db-migrate down",
+    "migrate:create": "db-migrate create"
   },
   "repository": {
     "type": "git",
@@ -38,6 +41,8 @@
     "bcrypt": "^4.0.1",
     "chalk": "^4.0.0",
     "cors": "^2.8.5",
+    "db-migrate": "^0.11.6",
+    "db-migrate-pg": "^1.0.0",
     "dotenv": "^8.2.0",
     "dotenv-cli": "^3.1.0",
     "esm": "^3.2.25",
@@ -81,7 +86,7 @@
     "jsxBracketSameLine": false,
     "jsxSingleQuote": false,
     "printWidth": 80,
-    "proseWrape": "preserve",
+    "proseWrap": "preserve",
     "quoteProps": "as-needed",
     "requirePragma": false,
     "semi": true,
